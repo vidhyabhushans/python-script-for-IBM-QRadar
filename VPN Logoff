@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+import netmiko
+import base64
+import sys
+
+from netmiko import ConnectHandler
+
+# Enter the encoded password
+passw = base64.b64decode('qwjroijdsfhkj')
+
+user = sys.argv[1]
+
+asd = 'anyconnect'
+cisco = {
+   'device_type': 'cisco_asa',
+   'host': 'X.X.X.X',# IP of firewall
+   'username': 'vidya',
+   'password': passw,
+        }
+net_connect = ConnectHandler(**cisco)
+show_commands = ['vpn-sessiondb logoff name %s noconfirm' % user]
+output = ''
+for cmd in show_commands:
+     output += net_connect.send_command(cmd, delay_factor=2)
