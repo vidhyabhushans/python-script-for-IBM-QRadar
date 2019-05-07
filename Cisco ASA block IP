@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+import netmiko
+from netmiko import ConnectHandler
+sip = sys.argv[1]
+#sip = '8.8.8.8'
+cisco = {
+   'device_type': 'cisco_asa',
+   'host': 'X.X.X.X',
+   'username': 'vidya',
+   'password': '*********',
+        }
+net_connect = ConnectHandler(**cisco)
+config_command1 = ['object-group network TEST\n' 'network-object host %s\n' % sip]
+net_connect.send_config_set(config_command1)
+
+# assign policy to the group from Cisco ASA
