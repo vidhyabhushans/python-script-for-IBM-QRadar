@@ -3,7 +3,11 @@
 Python Script for Custom action in IBM QRadar SIEM.
 
 Before adding in custom action you need to install all modules in IBM QRadar(consol) from cli
-ex: pip install netmiko
+
+pip install netmiko
+pip install os
+pip install sys
+pip install python-ldap
 
 If the custom action taking to much time to execute or the custom action give you time out erroe you need to extend your custom action default timout from QRadar
 
