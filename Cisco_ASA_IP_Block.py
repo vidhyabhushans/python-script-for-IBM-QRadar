@@ -2,7 +2,7 @@
 import paramiko, time
 
 host = 'xx.xx.xx.xx'
-password = '*******'
+password = 'qwrfdsfv121'
 username = 'admin'
 
 ssh = paramiko.SSHClient()
